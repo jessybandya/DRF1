@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from corsheaders.defaults import default_headers
 
 import  os
-
+import django_heroku
 
 from pathlib import Path
 from datetime import timedelta
@@ -29,9 +29,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '5&@ge9f5h+#wh8q$ogh03wwryy-ea-ewccedz=2*g*ev3km=_3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://backenddrf2.herokuapp.com']
 
 # CORS_ALLOW_HEADERS = default_headers + (
 #     'Access-Control-Allow-Origin',
@@ -194,8 +194,10 @@ if os.getcwd() == '/app':
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
     #Allow all host headers
-    ALLOWED_HOSTS = ['https://backenddrf2.herokuapp.com']
+    ALLOWED_HOSTS = ['hellodevdennis.herokuapp.com']
     DEBUG = True
 
     #Static asset configuration
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+    django_heroku.settings(locals())
