@@ -31,7 +31,7 @@ SECRET_KEY = '5&@ge9f5h+#wh8q$ogh03wwryy-ea-ewccedz=2*g*ev3km=_3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://backend-drf1.herokuapp.com/']
 
 # CORS_ALLOW_HEADERS = default_headers + (
 #     'Access-Control-Allow-Origin',
@@ -177,5 +177,7 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication'
     ],
 }
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
