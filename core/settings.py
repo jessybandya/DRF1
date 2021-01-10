@@ -29,9 +29,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '5&@ge9f5h+#wh8q$ogh03wwryy-ea-ewccedz=2*g*ev3km=_3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['https://backenddrf2.herokuapp.com']
+ALLOWED_HOSTS = []
 
 # CORS_ALLOW_HEADERS = default_headers + (
 #     'Access-Control-Allow-Origin',
@@ -182,3 +182,20 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+if os.getcwd() == '/app':
+    import dj_database_url
+    db_from_env = dj_database_url.config(conn_max_age=500)
+    DATABASES['default'].update(db_from_env)
+    #Honor the 'X-forwarded-Proto' header for request.is_secure().
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+    #Allow all host headers
+    ALLOWED_HOSTS = ['https://backenddrf2.herokuapp.com']
+    DEBUG = True
+
+    #Static asset configuration
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
