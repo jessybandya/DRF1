@@ -31,7 +31,7 @@ SECRET_KEY = '5&@ge9f5h+#wh8q$ogh03wwryy-ea-ewccedz=2*g*ev3km=_3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://backend-drf1.herokuapp.com/']
+ALLOWED_HOSTS = ['https://backenddrf1.herokuapp.com']
 
 # CORS_ALLOW_HEADERS = default_headers + (
 #     'Access-Control-Allow-Origin',
