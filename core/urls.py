@@ -9,6 +9,9 @@ from rest_framework_simplejwt.views import (
 )
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf.urls import url
+from django.views.static import serve
+
 
 urlpatterns = [
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
@@ -24,7 +27,10 @@ urlpatterns = [
         description="API for the BlogAPI",
         # version="1.0.0"
     ), name='openapi-schema'),
-    path('auth/', obtain_auth_token)
+    path('auth/', obtain_auth_token),
+url(r'^media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}),
+    url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
+
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

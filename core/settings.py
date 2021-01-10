@@ -29,9 +29,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '5&@ge9f5h+#wh8q$ogh03wwryy-ea-ewccedz=2*g*ev3km=_3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['https://backenddrf2.herokuapp.com']
+ALLOWED_HOSTS = ['']
 
 # CORS_ALLOW_HEADERS = default_headers + (
 #     'Access-Control-Allow-Origin',
@@ -63,6 +63,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.common.BrokenLinkEmailsMiddleware',
     'django.middleware.common.CommonMiddleware',
